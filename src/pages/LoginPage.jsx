@@ -35,10 +35,10 @@ function LoginPage() {
         // Verify the token by sending a request 
         // to the server's JWT validation endpoint. 
         authenticateUser();                     // <== ADD
-        navigate('/');
+        navigate('/main');
       })
       .catch((err) => {
-        setErrorMessage(err.response.data.errorMessage);
+        setErrorMessage(err.response.data);
       })
   };
 
