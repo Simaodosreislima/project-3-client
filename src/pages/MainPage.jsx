@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-/* import { Link } from 'react-router-dom';
-import AddProject from '../../components/AddProject/AddProject'; */
+import { Link } from 'react-router-dom';
+
 
 function MainPage() {
   const [user, setUser] = useState([]);
@@ -28,20 +28,21 @@ function MainPage() {
 
   return (
     <div className="UserListPage">
-      <>
+      {user.map((user) => {
         return (
-        <div className="UserCard">
-          <h3>{user.firstName}</h3>
-          <video width="100%" height="10%">{user.profileVideos}</video>
-          <p>{user.description}</p>
-          <button>See Profile</button>
-          <br />
-          <button>Nah</button>
-          <button>yeah</button>
-        </div>
+          <div className="UserCard" key={user._id}>
+            <span>{user.firstName}</span>
+            <span>{user.lastName}</span>
+            <video>{user.profileVideos}</video>
+            <span>{user.description}</span>
+            <Link to={`/user-profile/${user._id}`}>
+              <button>See Profile</button>
+            </Link>
+
+          </div>
         )
-      </>
-    </div>
+      })}
+    </div >
   );
 }
 
