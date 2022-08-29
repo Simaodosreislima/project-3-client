@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/auth.context"
 function Navbar() {
   const { loggedIn, user, logout } = useContext(AuthContext);
   return (
-    <nav>
+    <nav className="flex flex-row content-center p-8 bg-black text-white">
       <Link to="/">
         <button>Home</button>
       </Link>
@@ -16,10 +16,13 @@ function Navbar() {
           <Link to="/main">
             <button>Main page</button>
           </Link>
-          <Link to={`/user-profile${user._id}`}>
+          <Link to={`/user-profile/${user._id}`}>
             <button>Profile</button>
           </Link>
-          <span>{user.firstName}</span>
+          <Link to={`/matches`}>
+            <button>matches</button>
+          </Link>
+          <span>Hi {user.firstName}</span>
           <button onClick={logout}>Logout</button>
         </>
       )}

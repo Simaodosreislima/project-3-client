@@ -6,8 +6,9 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
 import Private from './components/Navbar/Private/Private';
+import ProfilePage from './pages/ProfilePage';
 import Anon from "./components/Navbar/Anon/Anon"
-
+import React from "react"
 function App() {
   return (
     <div className="App">
@@ -26,8 +27,12 @@ function App() {
           element={<Private>
             <MainPage />
           </Private>} />
+        <Route path="/user-profile/:id"
+          element={<Private>
+            <ProfilePage />
+          </Private>} />
       </Routes>
-    </div>
+    </div >
   );
 }
 
