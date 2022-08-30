@@ -8,7 +8,7 @@ import MainPage from './pages/MainPage';
 import Private from './components/Navbar/Private/Private';
 import ProfilePage from './pages/ProfilePage';
 import ProfileEdit from './pages/ProfileEdit';
-import Matches from './pages/Matches';
+import MatchesPage from './pages/MatchesPage';
 import Anon from "./components/Navbar/Anon/Anon"
 import React from "react"
 function App() {
@@ -39,7 +39,7 @@ function App() {
           </Private>} />
         <Route path="/matches"
           element={<Private>
-            <Matches />
+            <MatchesPage />
           </Private>} />
       </Routes>
     </div >

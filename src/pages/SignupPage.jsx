@@ -41,7 +41,7 @@ function SignupPage() {
 
 
       <form onSubmit={handleSubmit} className="h-4/5 w-full bg-blue-300 rounded md:mt-6  md:w-2/5 md:h-3/5 border-solid border-blue-900 border-2 box-border border-opacity-75 shadow-2xl ">
-        <div className="flex flex-row justify-center mt-8 mb-8 box-border">
+        <div className="flex flex-row justify-center mt-8 mb-8 box-border md:mb-6">
           {/*   <label>Email:</label> */}
           <input
             type="email"
@@ -52,7 +52,7 @@ function SignupPage() {
             className="rounded text-center"
           />
         </div>
-        <div className="flex flex-row justify-center mt-4 mb-8 box-border">
+        <div className="flex flex-row justify-center mt-4 mb-8 box-border md:mb-6">
           {/*    <label>Username:</label> */}
           <input
             type="text"
@@ -63,7 +63,7 @@ function SignupPage() {
             className="rounded text-center"
           />
         </div>
-        <div className="flex flex-row justify-center mt-4 mb-8">
+        <div className="flex flex-row justify-center mt-4 mb-8 md:mb-6">
           {/*  <label>First Name:</label> */}
           <input
             type="text"
@@ -74,7 +74,7 @@ function SignupPage() {
             className="rounded text-center"
           />
         </div>
-        <div className="flex flex-row justify-center mt-4 mb-8">
+        <div className="flex flex-row justify-center mt-4 mb-8 md:mb-6">
           {/* <label>Last Name:</label> */}
           <input
             type="text"
@@ -85,7 +85,7 @@ function SignupPage() {
             className="rounded text-center"
           />
         </div>
-        <div className="flex flex-row justify-center mt-4 mb-8" >
+        <div className="flex flex-row justify-center mt-4 mb-8 md:mt-2 md:mb-6" >
           {/*        <label>Password:</label> */}
           <input
             type="password"
@@ -97,11 +97,11 @@ function SignupPage() {
           />
         </div>
         <div className="w-full flex flex-row items-center justify-center">
-          <button type="submit" className="bg-white w-1/5 md:w-1/5 rounded mt-8 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Sign Up</button>
+          <button type="submit" className="bg-white w-1/5 md:w-1/5 rounded p-1 mt-4 md:mt-2 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Sign Up</button>
         </div>
         <div className="w-full flex flex-col mt-8 items-center justify-center">
           <p>Already have account?</p>
-          <Link to={"/login"} className="bg-white w-1/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white"> Login</Link>
+          <Link to={"/login"} className="bg-sky-700  text-white w-1/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Login</Link>
         </div>
       </form>
 

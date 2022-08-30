@@ -84,7 +84,7 @@ function ProfileEdit() {
 
         <label htmlFor="description"> Description</label>
         <label htmlFor="description"> Description</label>
-        <input type="text" name="description" value={description} onChange={handleDescription} />
+        <input type="text" name="description" value={description} maxLength="180" onChange={handleDescription} />
 
         <input type="file" name="profileImage" onChange={handleProfileImage} />
         <button type="submit">Edit Profile</button>

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+/* body {
+  background-image: url("https://cdn.flash.pt/images/2022-06/img_828x523$2022_06_02_23_00_24_309015.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */

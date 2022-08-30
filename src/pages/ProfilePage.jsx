@@ -13,7 +13,7 @@ function ProfilePage() {
   const getUserDetails = async () => {
     try {
       const storedToken = localStorage.getItem('authToken');
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/${user._id}`, {
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/${id}`, {
         headers: {
           Authorization: `Bearer ${storedToken}`,
         },
@@ -36,9 +36,11 @@ function ProfilePage() {
           <span className="font-semibold text-lg">{userDetails.firstName} {userDetails.lastName}</span>
           <video className=" w-full mt-4 h-52 bg-white border-1 border-solid border-blue-900 shadow-2xl">{userDetails.profileVideos}</video>
           <span className="mt-4">{userDetails.description}</span>
-          <Link to={`/user-profile/${id}/edit`}>
-            <button className="bg-white w-2/5 items-center rounded mt-52 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Edit Profile</button>
-          </Link>
+          {user._id === id &&
+            <Link to={`/user-profile/${id}/edit`}>
+              <button className="bg-white w-2/5 items-center rounded mt-32 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Edit Profile</button>
+            </Link>
+          }
         </div>
 
 
