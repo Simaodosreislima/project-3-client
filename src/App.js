@@ -7,6 +7,8 @@ import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
 import Private from './components/Navbar/Private/Private';
 import ProfilePage from './pages/ProfilePage';
+/* import ProfileEdit from './pages/ProfileEdit'; */
+import Matches from './pages/Matches';
 import Anon from "./components/Navbar/Anon/Anon"
 import React from "react"
 function App() {
@@ -30,6 +32,14 @@ function App() {
         <Route path="/user-profile/:id"
           element={<Private>
             <ProfilePage />
+          </Private>} />
+        {/*   <Route path="/user-profile/:id/edit"
+          element={<Private>
+            <ProfileEdit />
+          </Private>} /> */}
+        <Route path="/matches"
+          element={<Private>
+            <Matches />
           </Private>} />
       </Routes>
     </div >

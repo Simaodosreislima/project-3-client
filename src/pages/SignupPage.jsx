@@ -37,49 +37,60 @@ function SignupPage() {
 
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="h-3/5 m-auto box-border container flex flex-col  md:w-1/5 md:m-auto text-center">
 
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmail}
-        />
 
-        <label>Username:</label>
-        <input
-          type="text"
-          name="name"
-          value={username}
-          onChange={handleUserName}
-        />
-
-        <label>First Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={firstName}
-          onChange={handleFirstName}
-        />
-
-        <label>Last Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={lastName}
-          onChange={handleLastName}
-        />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+      <form onSubmit={handleSubmit} className="h-4/5  bg-blue-300 rounded md:mt-6 w-screen border-solid border-blue-900 border-2 box-border border-opacity-75 shadow-2xl">
+        <div className="flex flex-row justify-center mt-4 mb-8 box-border">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            className="rounded"
+          />
+        </div>
+        <div className="flex flex-row justify-center mt-4 mb-8 box-border">
+          <label>Username:</label>
+          <input
+            type="text"
+            name="name"
+            value={username}
+            onChange={handleUserName}
+            className="rounded"
+          />
+        </div>
+        <div className="flex flex-row justify-center mt-4 mb-8">
+          <label>First Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={firstName}
+            onChange={handleFirstName}
+            className="rounded"
+          />
+        </div>
+        <div className="flex flex-row justify-center mt-4 mb-8">
+          <label>Last Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={lastName}
+            onChange={handleLastName}
+            className="rounded"
+          />
+        </div>
+        <div className="flex flex-row justify-center mt-4 mb-8" >
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            className="rounded"
+          />
+        </div>
 
         <button type="submit">Sign Up</button>
       </form>
