@@ -37,68 +37,76 @@ function SignupPage() {
 
 
   return (
-    <div className="h-3/5 m-auto box-border container flex flex-col  md:w-1/5 md:m-auto text-center">
+    <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
 
-      <form onSubmit={handleSubmit} className="h-4/5  bg-blue-300 rounded md:mt-6 w-screen border-solid border-blue-900 border-2 box-border border-opacity-75 shadow-2xl">
-        <div className="flex flex-row justify-center mt-4 mb-8 box-border">
-          <label>Email:</label>
+      <form onSubmit={handleSubmit} className="h-4/5 w-full bg-blue-300 rounded md:mt-6  md:w-2/5 md:h-3/5 border-solid border-blue-900 border-2 box-border border-opacity-75 shadow-2xl ">
+        <div className="flex flex-row justify-center mt-8 mb-8 box-border">
+          {/*   <label>Email:</label> */}
           <input
             type="email"
             name="email"
             value={email}
             onChange={handleEmail}
-            className="rounded"
+            placeholder="Email"
+            className="rounded text-center"
           />
         </div>
         <div className="flex flex-row justify-center mt-4 mb-8 box-border">
-          <label>Username:</label>
+          {/*    <label>Username:</label> */}
           <input
             type="text"
             name="name"
             value={username}
             onChange={handleUserName}
-            className="rounded"
+            placeholder="Username"
+            className="rounded text-center"
           />
         </div>
         <div className="flex flex-row justify-center mt-4 mb-8">
-          <label>First Name:</label>
+          {/*  <label>First Name:</label> */}
           <input
             type="text"
             name="name"
             value={firstName}
             onChange={handleFirstName}
-            className="rounded"
+            placeholder="First Name"
+            className="rounded text-center"
           />
         </div>
         <div className="flex flex-row justify-center mt-4 mb-8">
-          <label>Last Name:</label>
+          {/* <label>Last Name:</label> */}
           <input
             type="text"
             name="name"
             value={lastName}
             onChange={handleLastName}
-            className="rounded"
+            placeholder="Last Name"
+            className="rounded text-center"
           />
         </div>
         <div className="flex flex-row justify-center mt-4 mb-8" >
-          <label>Password:</label>
+          {/*        <label>Password:</label> */}
           <input
             type="password"
             name="password"
             value={password}
             onChange={handlePassword}
-            className="rounded"
+            placeholder="Password"
+            className="rounded text-center"
           />
         </div>
-
-        <button type="submit">Sign Up</button>
+        <div className="w-full flex flex-row items-center justify-center">
+          <button type="submit" className="bg-white w-1/5 md:w-1/5 rounded mt-8 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Sign Up</button>
+        </div>
+        <div className="w-full flex flex-col mt-8 items-center justify-center">
+          <p>Already have account?</p>
+          <Link to={"/login"} className="bg-white w-1/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white"> Login</Link>
+        </div>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
     </div>
   )
 }

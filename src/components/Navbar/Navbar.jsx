@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/auth.context"
 function Navbar() {
   const { loggedIn, user, logout } = useContext(AuthContext);
   return (
-    <nav className="box-border w-full h-20 px-4 bg-black text-white container flex justify-between items-center md:w-screen md:px-12 md:flex flex-row md:justify-">
+    <nav className="box-border w-full h-20 px-8 bg-black text-white container flex justify-between items-center md:w-screen md:px-12 md:flex flex-row md:justify-">
 
       {loggedIn && (
         <>

@@ -1,22 +1,24 @@
 import React from 'react';
-import { useEffect, useState/* , useContext */ } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams, Link } from "react-router-dom";
-/* import { AuthContext } from "../context/auth.context"; */
+import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 function ProfilePage() {
 
   const [userDetails, setUserDetails] = useState(null);
   const { id } = useParams();
+  const { user } = useContext(AuthContext)
 
 
   const getUserDetails = async () => {
     try {
       const storedToken = localStorage.getItem('authToken');
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/${id}`, {
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/${user._id}`, {
         headers: {
           Authorization: `Bearer ${storedToken}`,
         },
       });
+      console.log(response.data)
       setUserDetails(response.data)
     } catch (error) {
       console.log(error);

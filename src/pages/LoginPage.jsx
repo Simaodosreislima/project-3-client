@@ -38,32 +38,40 @@ function LoginPage() {
         navigate('/main');
       })
       .catch((err) => {
-        setErrorMessage(err.response.data);
+        setErrorMessage(err.response.data.message);
       })
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmail}
-        />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+      <form onSubmit={handleLoginSubmit} className="h-4/5 w-full bg-blue-300 rounded md:mt-6  md:w-2/5 md:h-3/5 border-solid border-blue-900 border-2 box-border border-opacity-75 shadow-2xl ">
+        <div className="flex flex-row justify-center mt-8 mb-8 box-border">
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            placeholder="Email"
+            className="rounded text-center"
+          />
 
-        <button type="submit">Login</button>
+        </div>
+        <div className="flex flex-row justify-center mt-8 mb-8 box-border">
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            placeholder="Password"
+            className="rounded text-center"
+          />
+        </div>
+
+        <div className="w-full flex flex-row items-center justify-center">
+          <button type="submit" className="bg-white w-1/5 md:w-1/5 rounded mt-8 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Login</button>
+        </div>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

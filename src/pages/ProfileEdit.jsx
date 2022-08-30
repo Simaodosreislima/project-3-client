@@ -1,9 +1,12 @@
-/* import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import React from "react";
+import { AuthContext } from '../context/auth.context';
+
 
 function ProfileEdit() {
+  const { logout } = useContext(AuthContext)
   const [videos, setVideos] = useState('');
   const [description, setDescription] = useState('');
   const [profileImage, setProfileImage] = useState('');
@@ -50,7 +53,7 @@ function ProfileEdit() {
         setVideos('');
         setDescription('');
         setProfileImage('')
-        navigate(`api/user`);
+        navigate(`/main`);
       })
       .catch((err) => console.log(err));
   };
@@ -63,14 +66,13 @@ function ProfileEdit() {
           Authorization: `Bearer ${storedToken}`,
         },
       });
+      logout()
       navigate('/');
+
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    deleteProfile();
-  }, [])
 
   return (
     <div className="EditProfilePage">
@@ -78,13 +80,13 @@ function ProfileEdit() {
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="videos">videos</label>
-        <input type="file" name="videos" value={videos} onChange={handleVideos} />
+        <input type="file" name="videos" onChange={handleVideos} />
 
+        <label htmlFor="description"> Description</label>
         <label htmlFor="description"> Description</label>
         <input type="text" name="description" value={description} onChange={handleDescription} />
-        <label htmlFor="description"> Description</label>
 
-        <input type="file" name="profileImage" value={profileImage} onChange={handleProfileImage} />
+        <input type="file" name="profileImage" onChange={handleProfileImage} />
         <button type="submit">Edit Profile</button>
       </form>
 
@@ -93,4 +95,4 @@ function ProfileEdit() {
   );
 }
 
-export default ProfileEdit; */
+export default ProfileEdit;
