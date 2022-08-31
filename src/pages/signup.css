@@ -5,3 +5,18 @@
   width: 100vw;
   height: 100vh;
 }
+
+.login {
+  background-image: url("https://images.all-free-download.com/images/graphiclarge/marching_band_clip_art_12328.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mainpage {
+  background-image: url("https://rollingstone.uol.com.br/media/_versions/sgt.peppers-lonely-hearts-club_reproducao_twitter_widelg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}

@@ -9,7 +9,7 @@ function ProfileEdit() {
   const { logout } = useContext(AuthContext)
   const [profileVideos, setProfileVideos] = useState('');
   const [description, setDescription] = useState('');
-  const [profileImage, setProfileImage] = useState('');
+  const [profileImg, setProfileImg] = useState('');
   const [fileUrl, setFileUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -18,15 +18,20 @@ function ProfileEdit() {
     setLoading(true);
 
     const uploadData = new FormData();
-
+    console.log(e.target.files)
     uploadData.append("fileUrl", e.target.files[0]);
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
         console.log(response.data.fileUrl)
-        setFileUrl(response.data.fileUrl);
+
         setLoading(false);
+        if (e.target.files[0].type.includes("video")) {
+          setProfileVideos(response.data.fileUrl)
+        } else {
+          setProfileImg(response.data.fileUrl)
+        }
       })
       .catch((err) => {
         setLoading(false);
@@ -52,7 +57,7 @@ function ProfileEdit() {
       setProfileVideos(response.data.profileVideos);
       console.log(response.data.profileVideos)
       setDescription(response.data.description);
-      setProfileImage(response.data.profileImg)
+      setProfileImg(response.data.profileImg)
     } catch (error) {
       console.log(error);
     }
@@ -63,11 +68,11 @@ function ProfileEdit() {
   }, []);
 
   const handleDescription = (e) => setDescription(e.target.value);
-  const handleProfileImage = (e) => setProfileImage(e.target.value);
+  const handleProfileImg = (e) => setProfileImg(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { profileVideos, description, profileImage };
+    const body = { profileVideos, description, profileImg };
     const storedToken = localStorage.getItem('authToken');
     let response = axios
       .put(`${process.env.REACT_APP_API_URL}/api/user/${id}`, body, {
@@ -78,7 +83,7 @@ function ProfileEdit() {
       .then(() => {
         setProfileVideos("");
         setDescription('');
-        setProfileImage('')
+        setProfileImg('')
         navigate(`/main`);
       })
       .catch((err) => console.log(err));
@@ -115,8 +120,8 @@ function ProfileEdit() {
         <label htmlFor="description"> Description</label>
         <input type="text" name="description" value={description} maxLength="180" onChange={handleDescription} />
 
-        <input type="file" name="profileImage" onChange={handleProfileImage} />
-        <button className="text-white font-bold" type="submit">Edit Profile</button>
+        <input type="file" name="fileUrl" onChange={handleProfileImg} />
+        <button className="text-black font-bold" type="submit">Edit Profile</button>
       </form>
 
       <button onClick={deleteProfile}>Delete Profile</button>

@@ -42,7 +42,7 @@ function SignupPage() {
       <div className="h-screen w-screen box-border  container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
 
-        <form onSubmit={handleSubmit} className="h-4/5 bg-transparent w-full opacity-75 backdrop-blur-xl backdrop-contrast-125 drop-shadow-md rounded md:mt-12  md:w-2/5 md:h-3/5  box-border  ">
+        <form onSubmit={handleSubmit} className="h-full bg-slate-200 w-full backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border  ">
           <div className="flex flex-row justify-center mt-8 mb-8 box-border md:mb-6">
             {/*   <label>Email:</label> */}
             <input
@@ -51,7 +51,7 @@ function SignupPage() {
               value={email}
               onChange={handleEmail}
               placeholder="Email"
-              className="rounded text-center"
+              className="rounded text-center border-2 border-solid border-sky-700"
             />
           </div>
           <div className="flex flex-row justify-center mt-4 mb-8 box-border md:mb-6">
@@ -62,7 +62,7 @@ function SignupPage() {
               value={username}
               onChange={handleUserName}
               placeholder="Username"
-              className="rounded text-center"
+              className="rounded text-center border-2 border-solid border-sky-700"
             />
           </div>
           <div className="flex flex-row justify-center mt-4 mb-8 md:mb-6">
@@ -73,7 +73,7 @@ function SignupPage() {
               value={firstName}
               onChange={handleFirstName}
               placeholder="First Name"
-              className="rounded text-center"
+              className="rounded text-center border-2 border-solid border-sky-700"
             />
           </div>
           <div className="flex flex-row justify-center mt-4 mb-8 md:mb-6">
@@ -84,7 +84,7 @@ function SignupPage() {
               value={lastName}
               onChange={handleLastName}
               placeholder="Last Name"
-              className="rounded text-center"
+              className="rounded text-center border-2 border-solid border-sky-700"
             />
           </div>
           <div className="flex flex-row justify-center mt-4 mb-8 md:mt-2 md:mb-6" >
@@ -95,14 +95,14 @@ function SignupPage() {
               value={password}
               onChange={handlePassword}
               placeholder="Password"
-              className="rounded text-center"
+              className="rounded text-center border-2 border-solid border-sky-700"
             />
           </div>
           <div className="w-full flex flex-row items-center justify-center">
             <button type="submit" className=" font-bold bg-white w-1/5 md:w-1/5 rounded p-1 mt-4 md:mt-2 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Sign Up</button>
           </div>
-          <div className="w-full flex flex-col mt-8 items-center justify-center text-white font-bold">
-            <p >Already have account?</p>
+          <div className="w-full flex flex-col mt-4 items-center justify-center text-cyan-300  font-bold md:mt-2">
+            <p >Already have an account?</p>
             <Link to={"/login"} className="bg-sky-700  text-white w-1/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Login</Link>
           </div>
         </form>

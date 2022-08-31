@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import React from "react"
-
+import "./signup.css"
 
 
 function LoginPage() {
@@ -43,41 +43,44 @@ function LoginPage() {
   };
 
   return (
-    <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
+
+    <div className="login">
+      <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
 
-      <form onSubmit={handleLoginSubmit} className="h-full w-full justify-center bg-blue-300 rounded md:mt-6  md:w-2/5 md:h-3/5 border-solid border-blue-900 border-2 box-border border-opacity-75 shadow-2xl ">
-        <div className="flex flex-row justify-center mt-32 mb-8 box-border">
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-            placeholder="Email"
-            className="rounded text-center"
-          />
+        <form onSubmit={handleLoginSubmit} className="h-full w-full px-8 backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border  ">
+          <div className="flex flex-row justify-center mt-32 mb-8 box-border">
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+              placeholder="Email"
+              className="rounded text-center border-2 border-solid border-sky-700"
+            />
 
-        </div>
-        <div className="flex flex-row justify-center mt-8 mb-8 box-border">
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-            placeholder="Password"
-            className="rounded text-center"
-          />
-        </div>
+          </div>
+          <div className="flex flex-row justify-center mt-8 mb-8 box-border">
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+              placeholder="Password"
+              className="rounded text-center border-2 border-solid border-sky-700"
+            />
+          </div>
 
-        <div className="w-full flex flex-row items-center justify-center">
-          <button type="submit" className="bg-white w-1/5 p-1 md:w-1/5 rounded mt-4 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Login</button>
-        </div>
-        <div className="w-full flex flex-col items-center justify-center mt-8">
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <p>Don't have an account yet?</p>
-          <Link to={"/signup"} className="bg-sky-700  text-white w-1/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Sign Up</Link>
-        </div>
-      </form>
+          <div className="w-full flex flex-row items-center justify-center">
+            <button type="submit" className="bg-white w-2/5 p-1 md:w-1/5 rounded mt-4 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Login</button>
+          </div>
+          <div className="w-full flex flex-col items-center justify-center mt-8">
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <p>Don't have an account yet?</p>
+            <Link to={"/signup"} className="bg-sky-700  text-white w-2/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Sign Up</Link>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

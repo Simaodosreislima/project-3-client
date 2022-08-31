@@ -9,7 +9,7 @@ import Private from './components/Navbar/Private/Private';
 import ProfilePage from './pages/ProfilePage';
 import ProfileEdit from './pages/ProfileEdit';
 import MatchesPage from './pages/MatchesPage';
-/* import Conversation from './pages/Conversation'; */
+import Conversation from './pages/Conversation';
 import Anon from "./components/Navbar/Anon/Anon"
 import React from "react"
 function App() {
@@ -42,10 +42,10 @@ function App() {
           element={<Private>
             <MatchesPage />
           </Private>} />
-        {/*   <Route path="/conversation"
+        <Route path="/conversation/:id"
           element={<Private>
             <Conversation />
-          </Private>} /> */}
+          </Private>} />
 
       </Routes>
     </div >
