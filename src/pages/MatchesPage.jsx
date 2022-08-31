@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 function MatchesPage() {
   const [matches, setMatches] = useState([]);
   const { user } = useContext(AuthContext)
@@ -14,7 +15,7 @@ function MatchesPage() {
           Authorization: `Bearer ${storedToken}`,
         },
       });
-      /*  console.log(response.data) */
+
       setMatches(response.data.matches)
     } catch (error) {
       console.log(error);
@@ -27,9 +28,12 @@ function MatchesPage() {
 
   return (
     <div>
-      {matches.map((match) => <div key={user._id} className="flex flex-col justify-center">
-        <p className="text-white text-center">{match.firstName} {match.lastName}</p>
-      </div>
+      {matches.map((match) =>
+        <Link to="/conversation">
+          <div key={user._id} className="flex flex-col justify-center bg-white">
+            <p className="text-blue-900 text-center">{match.firstName} {match.lastName}</p>
+          </div>
+        </Link>
       )}
     </div>
   )
