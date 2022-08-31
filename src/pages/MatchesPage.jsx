@@ -36,7 +36,7 @@ function MatchesPage() {
           Authorization: `Bearer ${storedToken}`,
         },
       });
-      console.log(response.data)
+
       setConversations(response.data)
     } catch (error) {
       console.log(error);
@@ -51,10 +51,12 @@ function MatchesPage() {
   return (
     <div>
       {conversations.map((chat) =>
-        <Link to={`/conversation/${chat._id}`}>
-          <div key={user._id} className="flex flex-col justify-center bg-white">
+        <Link to={`/chat/${chat._id}/message`}>
+          <div className="flex flex-col justify-center bg-white">
             {chat.participants.filter((user) => user._id !== userDetails._id).map((user) =>
+
               <p className="text-blue-900 text-center">{user.firstName} {user.lastName}</p>
+
             )}
           </div>
         </Link>

@@ -42,7 +42,7 @@ function App() {
           element={<Private>
             <MatchesPage />
           </Private>} />
-        <Route path="/conversation/:id"
+        <Route path="/chat/:id/message"
           element={<Private>
             <Conversation />
           </Private>} />

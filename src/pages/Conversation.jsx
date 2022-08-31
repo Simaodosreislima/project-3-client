@@ -1,36 +1,40 @@
-import axios from 'axios';
 import React from 'react'
-import { useState, useContext } from 'react';
+/* import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context"
-function Conversation() {
-  const [message, setMessage] = useState("");
-  const { user } = useContext(AuthContext);
-  const handleMessage = (e) => setMessage(e.target.value)
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom" */
 
-  const createMessage = async () => {
-    try {
-      const storedToken = localStorage.getItem('authToken');
-      let response = await axios.post(`${process.env.REACT_APP_API_URL}/chat/create/`, {
-        headers: {
-          Authorization: `Bearer ${storedToken}`
-        }
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
+
+function Conversation() {
+  //const { id } = useParams() //getting the chat by its id
+  /*  const { user } = useContext(AuthContext)
+   const [conversation, setConversation] = useState([]);
+   const navigate = useNavigate();
+ 
+   const handleMessage = (e) => {
+     e.preventDefault();
+     const body = { content, author };
+     axios.post(`${process.env.REACT_APP_API_URL}/api/chat/${id}/message`, body)
+       .then(() => {
+         setConversation(data.messages)
+       })
+       .catch((error) => {
+         console.log(error)
+       })
+   }
+ 
+   useEffect(() => {
+     getConversation();
+   }, []); */
 
   return (
     <div>
-      <h1 className="text-white font-bold"> Conversation</h1>
-      {user && (
-        <input
-          type="text"
-          value={message}
-          onChange={handleMessage}
-          placeholder="Type your message here"
-          className="bg-white" />
-      )}
+      {/* {conversation.map((message) => */}
+      <div>
+        <p>HELP</p>
+      </div>
+
+
     </div>
   )
 }

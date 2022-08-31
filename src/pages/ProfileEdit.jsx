@@ -18,7 +18,7 @@ function ProfileEdit() {
     setLoading(true);
 
     const uploadData = new FormData();
-    console.log(e.target.files)
+
     uploadData.append("fileUrl", e.target.files[0]);
 
     axios
@@ -84,7 +84,7 @@ function ProfileEdit() {
         setProfileVideos("");
         setDescription('');
         setProfileImg('')
-        navigate(`/main`);
+        navigate(`/user-profile/${id}`);
       })
       .catch((err) => console.log(err));
   };
