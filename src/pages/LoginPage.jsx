@@ -48,7 +48,7 @@ function LoginPage() {
       <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
 
-        <form onSubmit={handleLoginSubmit} className="h-full w-full px-8 backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border  ">
+        <form onSubmit={handleLoginSubmit} className="h-full w-full px-8 backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-4/5  box-border  ">
           <div className="flex flex-row justify-center mt-32 mb-8 box-border">
             <input
               type="email"
@@ -74,7 +74,7 @@ function LoginPage() {
           <div className="w-full flex flex-row items-center justify-center">
             <button type="submit" className="bg-white w-2/5 p-1 md:w-1/5 rounded mt-4 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Login</button>
           </div>
-          <div className="w-full flex flex-col items-center justify-center mt-8">
+          <div className="w-full flex flex-col items-center justify-center mt-4">
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <p className="bg-white/70">Don't have an account yet?</p>
             <Link to={"/signup"} className="bg-sky-700  text-white w-2/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Sign Up</Link>

@@ -31,10 +31,18 @@
 }
 
 .homepage {
-  background-image: url("https://media.istockphoto.com/photos/woman-performing-on-a-violin-picture-id1131760814?k=20&m=1131760814&s=612x612&w=0&h=JH9xgajVr93cERGxdQNDDDJKqBamNSV5cZbMxXWDek8=");
+  background-image: url("https://super.abril.com.br/wp-content/uploads/2020/12/SI_422_ORCL_orquestra_SITE.png?w=1024");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
 
+}
+
+.matches {
+  background-image: url("https://st.depositphotos.com/3421809/4716/v/600/depositphotos_47160095-stock-illustration-one-man-band.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  width: 100vw;
+  height: 100vh;
 }

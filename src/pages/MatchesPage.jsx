@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import "./signup.css"
+
 function MatchesPage() {
   const [conversations, setConversations] = useState([]);
   const { user } = useContext(AuthContext)
@@ -49,18 +51,20 @@ function MatchesPage() {
 
 
   return (
-    <div>
-      {conversations.map((chat) =>
-        <Link to={`/chat/${chat._id}/message`}>
-          <div className="flex flex-col justify-center bg-white">
-            {chat.participants.filter((user) => user._id !== userDetails._id).map((user) =>
-
-              <p className="text-blue-900 text-center">{user.firstName} {user.lastName}</p>
-
-            )}
-          </div>
-        </Link>
-      )}
+    <div className="matches">
+      <div className="border-2 border-solid border-sky-900 h-full">
+        {conversations.map((chat) =>
+          <Link to={`/chat/${chat._id}/message`}>
+            <div className="flex justify-end md:justify-center items-start mt-2 ">
+              {chat.participants.filter((user) => user._id !== userDetails._id).map((user) =>
+                <div className="flex justify-end mr-5 md:justify-center text-center flex-row rounded">
+                  <p className="text-pink-600 underline text-lg decoration-black items-center">{user.firstName} {user.lastName}</p>
+                </div>
+              )}
+            </div>
+          </Link>
+        )}
+      </div>
     </div>
   )
 }

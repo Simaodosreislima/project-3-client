@@ -51,19 +51,23 @@ function Conversation() {
   }, [user]);
 
   return (
-    <div>
-      <div>
-        {conversation && conversation.map((message) => {
-          return (
-            <>
-              <h1>{message.author.firstName}: {message.content}</h1>
-            </>
-          )
-        })}
-        <form onSubmit={handleMessage}>
-          <input type="text" placeholder='chat' onChange={(e) => setContent(e.target.value)} value={content} />
-        </form>
-        <p>HELP</p>
+    <div className="conversation h-screen">
+      <h1 className="text-center">Enjoy your conversation at MusicMate</h1>
+      <div className="flex flex-col justify-center items-center border-2 border-solid border-sky-700 bg-sky-600/40 h-full">
+
+        <div className="bg-white/20">
+          {conversation && conversation.map((message) => {
+            return (
+              <>
+                <h1 className="bg-white/50 shadow-blur-xl m-6">{message.author.firstName}: {message.content}</h1>
+              </>
+            )
+          })}
+
+          <form onSubmit={handleMessage}>
+            <input type="text" placeholder='Type your message' onChange={(e) => setContent(e.target.value)} value={content} className="w-full text-center" />
+          </form>
+        </div>
       </div>
 
 

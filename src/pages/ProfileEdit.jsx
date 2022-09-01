@@ -39,6 +39,17 @@ function ProfileEdit() {
       });
   };
 
+  //using an external api 
+  const [joke, setJoke] = useState("");
+  const jokes = async () => {
+    let response = await axios.get("https://geek-jokes.sameerkumar.website/api?format=json")
+    setJoke(response.data)
+    response.json(response.data)
+  }
+  useEffect(() => {
+    jokes();
+  }, []);
+
 
 
 
@@ -106,24 +117,24 @@ function ProfileEdit() {
   };
 
   return (
-    <div>
-      <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
+    <div className="profile">
+      <div className="h-screen w-screen box-border container flex flex-col items-center md:h-screen md:w-auto md:text-center md:items-center ">
 
-        <form onSubmit={handleSubmit} className="h-full w-full px-8 backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border">
+        <form onSubmit={handleSubmit} className="h-full w-full px-8 backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-4/5  box-border">
           <div className="flex flex-col items-center mt-32 mb-8 box-border">
-            <label className="flex flex-col w-8 items-center" htmlFor="fileUrl"><b>Add a video</b>
+            <label className="flex flex-col w-52 items-center text-pink-600" htmlFor="fileUrl"><b>Add a video</b>
               <input
                 type="file"
                 accept=".mp4, .mp3"
                 name="fileUrl"
                 onChange={handleFileUpload}
                 placeholder="Add a video"
-                className="w-8"
+                className="w-52"
               />
             </label>
           </div>
           <div className="flex flex-col items-center mt-8 mb-8 box-border">
-            <label htmlFor="description"><b>Add a description</b></label>
+            <label htmlFor="description" className=" text-pink-600"><b>Add a description</b></label>
             <input
               type="text"
               size="100"
@@ -131,14 +142,18 @@ function ProfileEdit() {
               value={description}
               maxLength="100"
               placeholder="Add a description (up to 100 characters)"
-              className="rounded text-center border-2 border-solid border-sky-700"
+              className="rounded text-center border-2 border-solid border-sky-700 w-72"
               onChange={handleDescription} />
           </div>
-          {/* <input type="file" name="fileUrl" onChange={handleProfileImg} /> */}
-          <button className="text-black font-bold" type="submit">Edit Profile</button>
+
+          <div className="flex flex-row justify-around">
+            <button className="font-bold bg-white border-2 border-solid border-blue-900 rounded w-3/12 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white" type="submit">Edit Profile</button>
+            <button onClick={deleteProfile} className="font-bold  bg-white border-2 border-solid border-blue-900 rounded w-3/12 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Delete Profile</button>
+          </div>
+          <p className="mt-32">{joke.joke}</p>
         </form>
 
-        <button onClick={deleteProfile}>Delete Profile</button>
+
       </div>
     </div>
   );

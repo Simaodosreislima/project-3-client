@@ -56,8 +56,12 @@ function MainPage() {
   }
   return (
     <div className="mainpage">
+      {!user.length &&
+        <div className="flex items-center justify-center h-100 ">
+          <p className=" text-pink-600 font-bold text-2xl" >No mores users left</p>
+        </div>
+      }
       <div className="h-screen box-border md:w-1/5 container flex  md:m-auto text-center  ">
-        {!user.length && <p>No mores users left</p>}
         {user.length > 0 && (
           <div key={user[0]._id} className=" h-full md:h-4/5 flex-col backdrop-blur-sm bg-white/10 rounded md:mt-6 w-screen box-border border-opacity-75 shadow-2xl" >
             <p className=" uppercase mt-2 font-bold text-lg text-pink-600">{user[0].firstName} {user[0].lastName}</p>
