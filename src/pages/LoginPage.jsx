@@ -76,7 +76,7 @@ function LoginPage() {
           </div>
           <div className="w-full flex flex-col items-center justify-center mt-8">
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <p>Don't have an account yet?</p>
+            <p className="bg-white/70">Don't have an account yet?</p>
             <Link to={"/signup"} className="bg-sky-700  text-white w-2/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Sign Up</Link>
           </div>
         </form>

@@ -106,25 +106,40 @@ function ProfileEdit() {
   };
 
   return (
-    <div className="EditProfilePage">
-      <h3>Edit Profile</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="fileUrl">videos</label>
-        <input
-          type="file"
-          accept=".mp4, .mp3"
-          name="fileUrl"
-          onChange={handleFileUpload} />
+    <div>
+      <div className="h-screen w-screen box-border container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
-        <label htmlFor="description"> Description</label>
-        <label htmlFor="description"> Description</label>
-        <input type="text" name="description" value={description} maxLength="180" onChange={handleDescription} />
+        <form onSubmit={handleSubmit} className="h-full w-full px-8 backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border">
+          <div className="flex flex-col items-center mt-32 mb-8 box-border">
+            <label className="flex flex-col w-8 items-center" htmlFor="fileUrl"><b>Add a video</b>
+              <input
+                type="file"
+                accept=".mp4, .mp3"
+                name="fileUrl"
+                onChange={handleFileUpload}
+                placeholder="Add a video"
+                className="w-8"
+              />
+            </label>
+          </div>
+          <div className="flex flex-col items-center mt-8 mb-8 box-border">
+            <label htmlFor="description"><b>Add a description</b></label>
+            <input
+              type="text"
+              size="100"
+              name="description"
+              value={description}
+              maxLength="100"
+              placeholder="Add a description (up to 100 characters)"
+              className="rounded text-center border-2 border-solid border-sky-700"
+              onChange={handleDescription} />
+          </div>
+          {/* <input type="file" name="fileUrl" onChange={handleProfileImg} /> */}
+          <button className="text-black font-bold" type="submit">Edit Profile</button>
+        </form>
 
-        <input type="file" name="fileUrl" onChange={handleProfileImg} />
-        <button className="text-black font-bold" type="submit">Edit Profile</button>
-      </form>
-
-      <button onClick={deleteProfile}>Delete Profile</button>
+        <button onClick={deleteProfile}>Delete Profile</button>
+      </div>
     </div>
   );
 }

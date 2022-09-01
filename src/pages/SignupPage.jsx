@@ -42,7 +42,7 @@ function SignupPage() {
       <div className="h-screen w-screen box-border  container flex flex-col items-center md:w-auto md:text-center md:items-center ">
 
 
-        <form onSubmit={handleSubmit} className="h-full bg-slate-200 w-full backdrop-blur-sm bg-white/20 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border  ">
+        <form onSubmit={handleSubmit} className="h-full w-full backdrop-blur-sm bg-white/10 rounded md:mt-12  md:w-2/5 md:h-3/5  box-border  ">
           <div className="flex flex-row justify-center mt-8 mb-8 box-border md:mb-6">
             {/*   <label>Email:</label> */}
             <input
@@ -101,7 +101,7 @@ function SignupPage() {
           <div className="w-full flex flex-row items-center justify-center">
             <button type="submit" className=" font-bold bg-white w-1/5 md:w-1/5 rounded p-1 mt-4 md:mt-2 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Sign Up</button>
           </div>
-          <div className="w-full flex flex-col mt-4 items-center justify-center text-cyan-300  font-bold md:mt-2">
+          <div className="w-full flex flex-col mt-4 items-center justify-center text-white/80  font-bold md:mt-2">
             <p >Already have an account?</p>
             <Link to={"/login"} className="bg-sky-700  text-white w-1/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Login</Link>
           </div>
