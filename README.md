@@ -1,70 +1,192 @@
-# Getting Started with Create React App
+#MusicMate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+# MusicMate
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**MusicMate** is an app where musicians can display their skills and potencially arranje meetups to jam with each other.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## User Stories
 
-### `npm test`
+-  **404:** As a user I get to see a 404 page with a feedback message if I try to reach a page that does not exist so that I know it's my fault.
+-  **Signup:** As an anonymous user I can sign up on the platform so that I can start meeting other musicians.
+-  **Login:** As a user I can login to the platform so that I can access my profile and meet other musicians.
+-  **Logout:** As a logged in user I can logout from the platform so no one else can use it.
+-  **Profile Page**: As a logged in user I can visit my profile page so that I can edit the information I display to other musicians or delete my profile.
+- **Homepage:** As a logged in user I can scroll through other musicians profiles, allowing  to pick a good music match for me.
+-  **Create matches:** As a logged in user I can like other musicians profiles, invinting them to have a conversation and arranje a jam.
+-  **Matches page:** As a logged in user I can access my private matches page where I can see if other musicians accepted my match creation request and delete matches that didn't come to fruition.
+-  ** Single match page:** As a logged in user I can privately chat with a musician that matched with me.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Backlog
 
-### `npm run eject`
+- Add weather widget
+- lottie interactions
+- users can bet
+- add geolocation to events when creating
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Client / Frontend
 
-## Learn More
+## React Router Routes (React App)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Path                         | Component            | Permissions                | Behavior                                                  |
+| ---------------------------- | -------------------- | -------------------------- | --------------------------------------------------------- |
+| `/login`                     | LoginPage            | anon only `<AnonRoute>`    | Login form, navigates to home page or edit profile page(?) after login.           |
+| `/signup`                    | SignupPage           | anon only  `<AnonRoute>`   | Signup form, navigates to login page after signup.         |
+| `/`                          | HomePage             | public `<Route>`           | Home page. Navigates to log in or sign up forms.                                                |
+| `/main`                          | MainPage             | user only `<PrivateRoute>`           | Main page. Displays other users profiles.                                                |
+| `/user-profile/:id`              | ProfilePage          | user only `<PrivateRoute>` | User profile.             |
+| `/user-profile/edit`         | EditProfilePage      | user only `<PrivateRoute>` | Edit user profile form.                                   |
+| `/user-profile/matches`               | MatchesListPage   | user only `<PrivateRoute>` | Matches list.                                         |
+| `/user-profile/matches/:matchId` | MatchDetailPage | user only `<PrivateRoute>` | Match details. Shows text area where two players can talk with each other |
+                                 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Components
 
-### Making a Progressive Web App
+Pages:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- LoginPage
 
-### Advanced Configuration
+- SignupPage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- HomePage
 
-### Deployment
+- MainPage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- ProfilePage
 
-### `npm run build` fails to minify
+- EditProfilePage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- MatchesListPage
+
+- MatchDetailPage
+
+- UserDetailsPage
+
+  
+
+**Components:**
+
+- UserCard
+- MatchCard
+- Navbar
+
+  
+
+<br>
+
+
+# Server / Backend
+
+
+## Models
+
+**User model**
+
+```javascript
+{
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+    userName: {type: String, required: true, unique:true},
+    firstName: {type: String, required: true},
+    lastName: {type: String, required: true},
+    profileImg: {type: String, default: ADD DEFAULT}
+    profileVideos:[String], 
+    spotifyAcessToken: {type: String},
+    MatchReceived: [{type: Schema.Types.ObjectId, ref: "User"}],
+    MatchSent: [{type: Schema.Types.ObjectId, ref: "User"}]
+}
+```
+
+
+
+**Match model**
+
+```javascript
+ {
+  userOne: {type: Schema.Types.ObjectId, ref: "User"},
+    userTwo: {type: Schema.Types.ObjectId, ref: "User"},
+    messages: [{type: Schema.Types.ObjectId, ref: "Messages"}]
+ }
+```
+
+
+
+**Message model**
+
+```javascript
+{
+  text: {type: string},
+    sender: {type: Schema.Types.ObjectId, ref: "User"}
+}
+```
+
+
+
+
+<br>
+
+
+## API Endpoints (backend routes)
+
+| HTTP Method | URL                    | Request Body                 | Success status | Error Status | Description                                                  |
+| ----------- | ---------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
+| GET         | `/auth/verify    `    |Authorization Bearer <JWT>               |            |          |           |
+| POST        | `/auth/signup`         | {userName, firstName, LastName, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`          | {email, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| GET         | `/api/user`     |                              |                | 400          | Show users                                      |
+| GET         | `/api/user/:id` |                              |                |              | Show specific user                                   |
+| PUT         | `/api/user/:id` | { firstName, LastName, profileImg, profileVideos, password }       | 200            | 400          | edit user profile                                              |
+| DELETE      | `/api/user/:id` |                              | 201            | 400          | delete user                                            |
+| GET         | `/api/matches`     |                              |                |              | show matches                                         |
+| GET         | `/api/matches/:id`     | {userOne, userTwo, messages }                | 200            | 400          | see specific match                                                  |
+| DELETE      | `/api/matches/:id`     |                              | 200            | 400          | delete matches                                               |
+| POST        | `/api/matches/:id`           | {sender, text} |                |              | add new message                                                     |
+
+
+<br>
+
+## API's
+[Spotify ](https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/)
+
+<br>
+
+## Packages
+
+<br>
+  
+### Git
+
+The url to your repository and to your deployed project
+
+[Client repository Link](https://github.com/Simaodosreislima/project-3-client)
+
+[Server repository Link](https://github.com/Simaodosreislima/project-3-server)
+
+Deployed App Link
+  (https://musicmates.netlify.app)
+
+### Slides
+
+
+
+### Contributors
+
+Simão Lima - [Github](https://github.com/Simaodosreislima)  - [LinkedIn](https://www.linkedin.com/in/simao-lima/)
+
