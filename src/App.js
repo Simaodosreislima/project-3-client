@@ -8,7 +8,6 @@ import MainPage from './pages/MainPage';
 import Private from './components/Navbar/Private/Private';
 import ProfilePage from './pages/ProfilePage';
 import ProfileEdit from './pages/ProfileEdit';
-/* import SpotifyApp from './pages/SpotifyApp'; */
 import MatchesPage from './pages/MatchesPage';
 import Conversation from './pages/Conversation';
 import Anon from "./components/Navbar/Anon/Anon"

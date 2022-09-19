@@ -5,12 +5,14 @@ import { AuthContext } from '../context/auth.context';
 import React from "react"
 import "./bgImages.css"
 
+/* const AUTH_URL = "https://accounts.spotify.com/authorize?client_id=8ad602bcdc9a40f193a4aa29f7a50ba5&response_type=code&redirect_uri=http://localhost:3000&scope=user-top-read" */
 
-function LoginPage() {
+
+function LoginPage(props) {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
-
   const navigate = useNavigate();
 
   /*  UPDATE - get authenticateUser from the context */
@@ -29,16 +31,15 @@ function LoginPage() {
       .then((response) => {
         console.log('JWT token', response.data.authToken);
 
-        // Save the token in the localStorage.      
+
         storeToken(response.data.authToken);
 
-        // Verify the token by sending a request 
-        // to the server's JWT validation endpoint. 
-        authenticateUser();                     // <== ADD
+
+        authenticateUser();
         navigate('/main');
       })
       .catch((err) => {
-        setErrorMessage(err.response.data);
+        setErrorMessage(err.response.data.errorMessage);
       })
   };
 
@@ -69,13 +70,15 @@ function LoginPage() {
               placeholder="Password"
               className="rounded text-center border-2 border-solid border-sky-700"
             />
+            {/*    <a href={AUTH_URL}>Login with spotify</a> */}
           </div>
 
           <div className="w-full flex flex-row items-center justify-center">
             <button type="submit" className="bg-white w-2/5 p-1 md:w-1/5 rounded mt-4 border-2 border-solid border-blue-900 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Login</button>
           </div>
           <div className="w-full flex flex-col items-center justify-center mt-4">
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+            {errorMessage && <p className=" bg-red-400 error-message">{errorMessage}</p>}
             <p className="bg-white/70">Don't have an account yet?</p>
             <Link to={"/signup"} className="bg-sky-700  text-white w-2/5 md:w-1/5 rounded text-center mt-2 p-1 border-2 border-solid border-white shadow-2xl hover:bg-white hover:text-sky-700 hover:border-blue-900"> Sign Up</Link>
           </div>
