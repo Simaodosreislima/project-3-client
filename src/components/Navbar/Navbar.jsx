@@ -6,10 +6,10 @@ import { AuthContext } from "../../context/auth.context"
 function Navbar() {
   const { loggedIn, user, logout } = useContext(AuthContext);
   return (
-    <nav className="w-screen md:w-screen xl:w-screen">
+    <nav className="w-screen md:w-screen lg:w-screen xl:w-screen 2xl:w-screen">
 
       {loggedIn && (
-        <div className="box-border w-screen h-20 px-8 md:px-0 bg-black text-white container flex justify-between items-center xl:w-screen md:w-screen md:flex flex-row ">
+        <div className="box-border  h-20 px-8 md:px-0 bg-black text-white container flex justify-between items-center  md:flex flex-row ">
           <div className="w-2/4 h-fit ">
             <Link to="/main">
               <button className=" md:m-8 hover:-rotate-12">Search a Bandmate</button>
@@ -28,8 +28,8 @@ function Navbar() {
       )}
 
       {!loggedIn && (
-        <div className="box-border w-screen h-20 px-8 bg-black container flex md:w-screen md:px-12 md:flex flex-row ">
-          <div className="w-1/2 flex justify-start items-center  md:m-8 hover:-rotate-6 ">
+        <div className="box-border  h-20 bg-black container flex  md:px-12 md:flex flex-row ">
+          <div className="w-1/2 flex justify-start items-center  md:m-8 hover:-rotate-3 ">
             <Link to="/">
               <button className="font-bold italic text-3xl text-pink-600">MusicMate</button>
             </Link>

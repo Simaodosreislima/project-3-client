@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState, useContext } from "react"
 import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import "./signup.css"
+import "./bgImages.css"
 import axios from "axios";
 function ProfilePage() {
 

@@ -47,11 +47,6 @@ function App() {
           element={<Private>
             <Conversation />
           </Private>} />
-        {/*        <Route path="/spotifyapp"
-          element={<Private>
-            <SpotifyApp />
-          </Private>} /> */}
-
       </Routes>
     </div >
   );

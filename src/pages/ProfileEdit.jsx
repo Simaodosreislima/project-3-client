@@ -9,7 +9,6 @@ function ProfileEdit() {
   const { logout } = useContext(AuthContext)
   const [profileVideos, setProfileVideos] = useState('');
   const [description, setDescription] = useState('');
-  const [profileImg, setProfileImg] = useState('');
   const [fileUrl, setFileUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -29,8 +28,6 @@ function ProfileEdit() {
         setLoading(false);
         if (e.target.files[0].type.includes("video")) {
           setProfileVideos(response.data.fileUrl)
-        } else {
-          setProfileImg(response.data.fileUrl)
         }
       })
       .catch((err) => {
@@ -38,17 +35,6 @@ function ProfileEdit() {
         console.log("Error while uploading the file: ", err);
       });
   };
-
-  //using an external api 
-  const [joke, setJoke] = useState("");
-  const jokes = async () => {
-    let response = await axios.get("https://geek-jokes.sameerkumar.website/api?format=json")
-    setJoke(response.data)
-    response.json(response.data)
-  }
-  useEffect(() => {
-    jokes();
-  }, []);
 
 
 
@@ -68,7 +54,7 @@ function ProfileEdit() {
       setProfileVideos(response.data.profileVideos);
       console.log(response.data.profileVideos)
       setDescription(response.data.description);
-      setProfileImg(response.data.profileImg)
+
     } catch (error) {
       console.log(error);
     }
@@ -79,11 +65,11 @@ function ProfileEdit() {
   }, []);
 
   const handleDescription = (e) => setDescription(e.target.value);
-  const handleProfileImg = (e) => setProfileImg(e.target.value);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { profileVideos, description, profileImg };
+    const body = { profileVideos, description };
     const storedToken = localStorage.getItem('authToken');
     let response = axios
       .put(`${process.env.REACT_APP_API_URL}/api/user/${id}`, body, {
@@ -94,7 +80,6 @@ function ProfileEdit() {
       .then(() => {
         setProfileVideos("");
         setDescription('');
-        setProfileImg('')
         navigate(`/user-profile/${id}`);
       })
       .catch((err) => console.log(err));
@@ -150,7 +135,7 @@ function ProfileEdit() {
             <button className="font-bold bg-white border-2 border-solid border-blue-900 rounded w-3/12 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white" type="submit">Edit Profile</button>
             <button onClick={deleteProfile} className="font-bold  bg-white border-2 border-solid border-blue-900 rounded w-3/12 shadow-2xl hover:bg-sky-700 hover:text-white hover:border-white">Delete Profile</button>
           </div>
-          <p className="mt-32">{joke.joke}</p>
+
         </form>
 
 

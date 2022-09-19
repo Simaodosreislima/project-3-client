@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import "./signup.css"
+import "./bgImages.css"
 function HomePage() {
 
 

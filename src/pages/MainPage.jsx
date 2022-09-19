@@ -3,7 +3,7 @@ import { AuthContext } from "../context/auth.context"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React from "react"
-import "./signup.css"
+import "./bgImages.css"
 
 function MainPage() {
   const [user, setUser] = useState([]);
