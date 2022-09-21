@@ -22,7 +22,7 @@ function Conversation() {
         }
       })
       setConversation(response.data.messages)
-      console.log(response.data)
+
 
     } catch (error) {
       console.log(error)
@@ -64,8 +64,9 @@ function Conversation() {
             )
           })}
 
-          <form onSubmit={handleMessage}>
-            <input type="text" placeholder='Type your message' onChange={(e) => setContent(e.target.value)} value={content} className="w-full text-center" />
+          <form onSubmit={handleMessage} className="flex flex-col">
+            <input type="text" placeholder='Type your message' onChange={(e) => setContent(e.target.value)} value={content} className="w-full text-center pb-2" />
+            <button className="bg-slate-400">Send</button>
           </form>
         </div>
       </div>
